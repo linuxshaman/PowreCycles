@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PowerCycles</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_create_new_cycle">CreateNewCycleActivity</string>
+    <string name="new_cycle_name_text">New Cycle Name</string>
+    <string name="new_cycle_weight_text">Desired weight</string>
+    <string name="power_cycle_type_dead_lift">Dead lift</string>
+    <string name="power_cycle_type_barbell_full_squat">Barbell full squat</string>
+    <string name="power_cycle_typeE_barbell_brench_press">Barbell brench press</string>
+</resources>
