@@ -22,14 +22,13 @@ public class PowerCycle {
         this.trainings = new ArrayList<Training>();
 
         WeightDistribution d = new WeightDistribution(type, weight);
-        List<Float> weights = d.getWeights();
         PowerCycleConfiguration conf = new PowerCycleConfiguration(type);
         List<TrainingConfiguration> tconfs = conf.getTrainings();
         for(TrainingConfiguration tc : tconfs){
             Training training = new Training();
             List<SetConfiguration> sconfs = tc.getSets();
             for(SetConfiguration sc : sconfs) {
-                Set set = new Set(sc.getWeightId(), sc.getRepeatCount());
+                Set set = new Set(d.getWeights().get(sc.getWeightId()), sc.getRepeatCount());
                 for (int i = 0; i < sc.getSets(); i++) {
                     training.addSet(set);
                 }

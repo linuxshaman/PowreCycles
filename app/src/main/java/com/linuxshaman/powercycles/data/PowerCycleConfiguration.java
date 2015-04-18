@@ -52,6 +52,28 @@ public class PowerCycleConfiguration {
         confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(0, 1, 5), new SetConfiguration(1, 2, 4), new SetConfiguration(2, 2, 3), new SetConfiguration(3, 1, 3), new SetConfiguration(4, 4, 3)})));
         confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(0, 1, 5), new SetConfiguration(1, 1, 5), new SetConfiguration(2, 1, 5), new SetConfiguration(3, 1, 4), new SetConfiguration(4, 3, 3), new SetConfiguration(5, 1, 3)})));
 
+
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 4), new SetConfiguration(2, 2, 4), new SetConfiguration(3, 4, 3)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(2, 2, 4), new SetConfiguration(3, 3, 3)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 3, 4), new SetConfiguration(2, 2, 3), new SetConfiguration(3, 2, 3), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 1, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 2, 3), new SetConfiguration(2, 2, 3), new SetConfiguration(3, 2, 3), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 2, 3)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 4), new SetConfiguration(2, 1, 4), new SetConfiguration(3, 1, 4), new SetConfiguration(4, 3, 4)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(0, 1, 4), new SetConfiguration(1, 2, 4), new SetConfiguration(2, 2, 3), new SetConfiguration(3, 2, 3), new SetConfiguration(4, 2, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 4), new SetConfiguration(2, 2, 4), new SetConfiguration(3, 2, 4), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 2, 3), new SetConfiguration(6, 2, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 4), new SetConfiguration(2, 2, 4), new SetConfiguration(3, 2, 3), new SetConfiguration(4, 2, 2), new SetConfiguration(5, 2, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 6), new SetConfiguration(2, 2, 5), new SetConfiguration(3, 2, 4), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 3, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 2, 6), new SetConfiguration(2, 2, 5), new SetConfiguration(3, 3, 4)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 5), new SetConfiguration(2, 2, 5), new SetConfiguration(3, 2, 4), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 2, 3), new SetConfiguration(6, 2, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 5), new SetConfiguration(2, 1, 4), new SetConfiguration(3, 2, 3), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 1, 2), new SetConfiguration(6, 3, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(2, 1, 4), new SetConfiguration(3, 2, 4), new SetConfiguration(4, 2, 4), new SetConfiguration(5, 1, 3), new SetConfiguration(6, 1, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 4), new SetConfiguration(2, 2, 4), new SetConfiguration(3, 2, 4), new SetConfiguration(4, 1, 3), new SetConfiguration(5, 1, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(3, 1, 4), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 2, 3), new SetConfiguration(6, 2, 2), new SetConfiguration(7, 1, 1)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 5), new SetConfiguration(2, 3, 4), new SetConfiguration(3, 3, 4), new SetConfiguration(4, 2, 2), new SetConfiguration(5, 1, 2), new SetConfiguration(6, 2, 1), new SetConfiguration(7, 1, 1)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(2, 2, 3), new SetConfiguration(3, 2, 3), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 2, 3), new SetConfiguration(6, 2, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(2, 1, 4), new SetConfiguration(3, 2, 3), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 1, 2)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(3, 2, 3), new SetConfiguration(4, 2, 3), new SetConfiguration(5, 2, 2), new SetConfiguration(6, 2, 1), new SetConfiguration(7, 1, 1), new SetConfiguration(8, 1, 1)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(1, 1, 3), new SetConfiguration(2, 1, 3), new SetConfiguration(3, 2, 2), new SetConfiguration(4, 3, 1)})));
+        confs.add(new TrainingConfiguration(Arrays.asList(new SetConfiguration[]{new SetConfiguration(2, 4, 3), new SetConfiguration(3, 3, 2), new SetConfiguration(4, 1, 2), new SetConfiguration(5, 1, 1)})));
         return confs;
     }
 
