@@ -7,4 +7,7 @@
     <string name="power_cycle_type_dead_lift">Dead lift</string>
     <string name="power_cycle_type_barbell_full_squat">Barbell full squat</string>
     <string name="power_cycle_typeE_barbell_brench_press">Barbell brench press</string>
+    <string name="title_activity_training">TrainingActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

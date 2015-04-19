@@ -9,11 +9,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".SelectCycleActivity"
             android:label="@string/app_name"
-            android:screenOrientation="nosensor">
+            android:screenOrientation="nosensor" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,14 @@
         <activity
             android:name=".CreateNewCycleActivity"
             android:label="@string/title_activity_create_new_cycle"
-            android:screenOrientation="nosensor">
+            android:screenOrientation="nosensor" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.linuxshaman.powercycles.SelectCycleActivity" />
+        </activity>
+        <activity
+            android:name=".PowerCycleActivity"
+            android:label="@string/title_activity_training" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.linuxshaman.powercycles.SelectCycleActivity" />

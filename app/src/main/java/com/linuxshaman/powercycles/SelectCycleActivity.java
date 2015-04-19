@@ -1,8 +1,8 @@
 package com.linuxshaman.powercycles;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.linuxshaman.powercycles.controllers.PowerCyclesManager;
 import com.linuxshaman.powercycles.data.PowerCycle;
+import com.linuxshaman.powercycles.helpers.BundleKeys;
 import com.linuxshaman.powercycles.helpers.IOHelper;
 
 import java.util.List;
@@ -91,7 +92,11 @@ public class SelectCycleActivity extends ActionBarActivity {
     }
 
     protected void onCycleClick(long id){
-
+        Intent intent = new Intent(this, PowerCycleActivity.class);
+        Bundle b = new Bundle();
+        b.putLong(BundleKeys.SELECTED_POWER_CYCLE_ID_KEY, id);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 
 //    public void sendMessage(View view) {
