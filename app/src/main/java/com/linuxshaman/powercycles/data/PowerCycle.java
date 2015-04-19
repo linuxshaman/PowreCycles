@@ -1,14 +1,15 @@
 package com.linuxshaman.powercycles.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by linuxshaman on 04.04.2015.
  */
-public class PowerCycle {
+public class PowerCycle implements Serializable {
 
-    protected  List<Training> trainings;
+    protected List<Training> trainings;
     protected String name;
     protected PowerCycleType type;
 

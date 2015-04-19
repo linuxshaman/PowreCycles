@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.linuxshaman.powercycles.controllers.PowerCyclesManager;
 import com.linuxshaman.powercycles.data.PowerCycle;
+import com.linuxshaman.powercycles.helpers.IOHelper;
 
 import java.util.List;
 
@@ -20,13 +21,14 @@ public class SelectCycleActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        PowerCyclesManager.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_cycle);
+        IOHelper.setContext(this);
     }
 
     @Override
     protected void onResume() {
+        PowerCyclesManager.getInstance();
         super.onResume();
         updateCyclesList();
     }

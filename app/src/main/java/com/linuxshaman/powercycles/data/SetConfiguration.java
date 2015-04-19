@@ -1,9 +1,11 @@
 package com.linuxshaman.powercycles.data;
 
+import java.io.Serializable;
+
 /**
  * Created by linuxshaman on 12.04.2015.
  */
-public class SetConfiguration {
+public class SetConfiguration implements Serializable {
 
     public int getWeightId() {
         return weightId;

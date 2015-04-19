@@ -1,9 +1,11 @@
 package com.linuxshaman.powercycles.data;
 
+import java.io.Serializable;
+
 /**
  * Created by linuxshaman on 04.04.2015.
  */
-public class Set {
+public class Set implements Serializable{
     protected float weight;
     protected int repeatCount;
 
