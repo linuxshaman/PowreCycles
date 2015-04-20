@@ -16,7 +16,7 @@ public class PowerCyclesManager{
     protected List<PowerCycle> powerCycles;
 
     private PowerCyclesManager() {
-        powerCycles = load();
+        powerCycles = loadCycles();
     }
 
     public List<PowerCycle> getPowerCycles() {
@@ -38,15 +38,15 @@ public class PowerCyclesManager{
     public void addNewCycle(String name, float weight, PowerCycleType type){
         PowerCycle cycle = new PowerCycle(type, name, weight);
         getInstance().powerCycles.add(cycle);
-        getInstance().save();
+        getInstance().saveCycles();
     }
 
-    public void save() {
+    public void saveCycles() {
         if (powerCycles == null || powerCycles.size() == 0) return;
         IOHelper.serializeObjectToStringAndSaveWithKey((Serializable) powerCycles, IOHelper.POWER_CYCLES_KEY);
     }
 
-    private List<PowerCycle>  load() {
+    private List<PowerCycle>  loadCycles() {
         String encodedString = IOHelper.readData(IOHelper.POWER_CYCLES_KEY);
         Object object = IOHelper.deserializeObjectFromString(encodedString);
         if(object == null) {
