@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.linuxshaman.powercycles.controllers.PowerCyclesManager;
 import com.linuxshaman.powercycles.data.PowerCycle;
+import com.linuxshaman.powercycles.data.PowerCyclesHelper;
 import com.linuxshaman.powercycles.helpers.BundleKeys;
 
 
@@ -22,6 +25,17 @@ public class PowerCycleActivity extends ActionBarActivity {
         int id = (int)b.getLong(BundleKeys.SELECTED_POWER_CYCLE_ID_KEY);
         PowerCycle powerCycle = PowerCyclesManager.getInstance().getPowerCycles().get(id);
         setTitle(powerCycle.getName());
+        TextView powerCycleTypeView = (TextView)findViewById(R.id.power_cycle_type_text_view);
+        powerCycleTypeView.setText(getString(PowerCyclesHelper.getResourceFromPowerCycleType(powerCycle.getType())));
+
+        TextView powerCycleWeightView = (TextView)findViewById(R.id.power_cycle_weight_text_view);
+        powerCycleWeightView.setText(Float.toString(powerCycle.getWeight()));
+
+        ProgressBar progressBar = (ProgressBar)findViewById(R.id.power_cycle_progress_bar);
+        progressBar.setProgress(50);
+
+        TextView progressTextView = (TextView)findViewById(R.id.progress_text_view);
+        progressTextView.setText("8 / 16 trainings complete!");
     }
 
     @Override

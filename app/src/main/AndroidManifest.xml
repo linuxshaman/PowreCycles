@@ -30,7 +30,8 @@
         </activity>
         <activity
             android:name=".PowerCycleActivity"
-            android:label="@string/title_activity_training" >
+            android:label="@string/title_activity_training"
+            android:screenOrientation="nosensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.linuxshaman.powercycles.SelectCycleActivity" />

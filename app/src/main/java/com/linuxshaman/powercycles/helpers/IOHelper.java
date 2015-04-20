@@ -3,9 +3,16 @@ package com.linuxshaman.powercycles.helpers;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Environment;
+import android.util.Base64;
+import android.util.Base64InputStream;
+import android.util.Base64OutputStream;
 
-import java.io.File;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * Created by linuxshaman on 19.04.2015.
@@ -39,5 +46,43 @@ public class IOHelper {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, value);
         editor.commit();
+    }
+
+
+    public static void serializeObjectToStringAndSaveWithKey(Serializable serializableObject, String key){
+        String toSave = null;
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        try{
+            new ObjectOutputStream(out).writeObject(serializableObject);
+            byte[] data =  out.toByteArray();
+            out.close();
+
+            out = new ByteArrayOutputStream();
+            Base64OutputStream b64 = new Base64OutputStream(out, Base64.DEFAULT);
+            b64.write(data);
+            b64.close();
+            out.close();
+
+            toSave =  new String(out.toByteArray());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        if(toSave != null){
+            IOHelper.saveData(IOHelper.POWER_CYCLES_KEY, toSave);
+        }
+    }
+
+    public static Object deserializeObjectFromString(String encodedObject){
+        if(encodedObject != null){
+            try{
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(encodedObject.getBytes());
+                Base64InputStream base64InputStream = new Base64InputStream(byteArrayInputStream, Base64.DEFAULT);
+                ObjectInputStream objectInputStream = new ObjectInputStream(base64InputStream);
+                return objectInputStream.readObject();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 }

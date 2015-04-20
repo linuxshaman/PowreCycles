@@ -1,13 +1,11 @@
 package com.linuxshaman.powercycles;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ExpandableListView;
-import android.widget.SimpleExpandableListAdapter;
 import android.widget.Spinner;
 
 import com.linuxshaman.powercycles.controllers.PowerCyclesManager;
@@ -59,18 +57,18 @@ public class CreateNewCycleActivity extends ActionBarActivity {
     }
 
     private void createNewCycle(){
-        EditText newCycleNameEditText = (EditText)findViewById(R.id.newCycleNameEditText);
-        EditText newCycleWeight = (EditText)findViewById(R.id.newCycleWeightEditText);
+        EditText newCycleNameEditText = (EditText)findViewById(R.id.new_cycle_name_edit_text);
+        EditText newCycleWeight = (EditText)findViewById(R.id.new_cycle_weight_edit_text);
         String name = newCycleNameEditText.getText().toString();
         float weight = Float.valueOf(newCycleWeight.getText().toString());
-        Spinner powerCyclesTypes = (Spinner)findViewById(R.id.powerCycleTypeList);
+        Spinner powerCyclesTypes = (Spinner)findViewById(R.id.power_cycle_type_spinner);
         long selectedPowerCycleTypeId = powerCyclesTypes.getSelectedItemId();
         PowerCycleType type = PowerCycleType.values()[(int)selectedPowerCycleTypeId];
         PowerCyclesManager.getInstance().addNewCycle(name, weight, type);
     }
 
     protected void initPowerCycleList(){
-        Spinner powerCyclesTypes = (Spinner)findViewById(R.id.powerCycleTypeList);
+        Spinner powerCyclesTypes = (Spinner)findViewById(R.id.power_cycle_type_spinner);
         List<String> list = new ArrayList<String>();
         for(PowerCycleType type : PowerCycleType.values()){
             int stringId = PowerCyclesHelper.getResourceFromPowerCycleType(type);

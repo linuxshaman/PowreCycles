@@ -12,6 +12,7 @@ public class PowerCycle implements Serializable {
     protected List<Training> trainings;
     protected String name;
     protected PowerCycleType type;
+    protected float weight;
 
     public List<Training> getTrainings() {
         return trainings;
@@ -21,6 +22,7 @@ public class PowerCycle implements Serializable {
         this.type = type;
         this.name = name;
         this.trainings = new ArrayList<Training>();
+        this.weight = weight;
 
         WeightDistribution d = new WeightDistribution(type, weight);
         PowerCycleConfiguration conf = new PowerCycleConfiguration(type);
@@ -44,6 +46,9 @@ public class PowerCycle implements Serializable {
 
     public PowerCycleType getType() {
         return type;
+    }
+    public float getWeight() {
+        return weight;
     }
 
     public String getName() {
