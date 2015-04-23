@@ -31,7 +31,7 @@ public class IOHelper {
         currentContext = context;
     }
 
-    public static String readData(String key){
+    public static String readStringDataForKey(String key){
         SharedPreferences preferences = currentContext.getPreferences(Context.MODE_PRIVATE);
         if(preferences == null){
             SharedPreferences.Editor editor = preferences.edit();
@@ -41,11 +41,28 @@ public class IOHelper {
         return preferences.getString(key, null);
     }
 
-    public static void saveData(String key, String value){
+    public static void saveStringDataForKey(String key, String value){
         SharedPreferences preferences = currentContext.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, value);
         editor.commit();
+    }
+
+    public static void saveIntegerDataForKey(String key, int value){
+        SharedPreferences preferences = currentContext.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(key, value);
+        editor.commit();
+    }
+
+    public static int readIntegerDataForKey(String key){
+        SharedPreferences preferences = currentContext.getPreferences(Context.MODE_PRIVATE);
+        if(preferences == null){
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.commit();
+            return Integer.MIN_VALUE;
+        }
+        return preferences.getInt(key, Integer.MIN_VALUE);
     }
 
 
@@ -68,7 +85,7 @@ public class IOHelper {
             e.printStackTrace();
         }
         if(toSave != null){
-            IOHelper.saveData(IOHelper.POWER_CYCLES_KEY, toSave);
+            IOHelper.saveStringDataForKey(IOHelper.POWER_CYCLES_KEY, toSave);
         }
     }
 

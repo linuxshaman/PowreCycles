@@ -39,6 +39,25 @@ public class PowerCyclesManager{
         PowerCycle cycle = new PowerCycle(type, name, weight);
         getInstance().powerCycles.add(cycle);
         getInstance().saveCycles();
+        IOHelper.saveIntegerDataForKey(cycle.getName(), 0);
+    }
+
+    public int getCycleProgress(PowerCycle cycle){
+        return IOHelper.readIntegerDataForKey(cycle.getName());
+    }
+
+    public void updateCycleProgress(PowerCycle cycle, int progress){
+        IOHelper.saveIntegerDataForKey(cycle.getName(), progress);
+    }
+
+    public void incrementCycleProgress(PowerCycle cycle){
+        int progress = IOHelper.readIntegerDataForKey(cycle.getName());
+        if(progress == Integer.MIN_VALUE){
+            progress = 0;
+        }else{
+            progress ++;
+        }
+        IOHelper.saveIntegerDataForKey(cycle.getName(), progress);
     }
 
     public void saveCycles() {
@@ -47,7 +66,7 @@ public class PowerCyclesManager{
     }
 
     private List<PowerCycle>  loadCycles() {
-        String encodedString = IOHelper.readData(IOHelper.POWER_CYCLES_KEY);
+        String encodedString = IOHelper.readStringDataForKey(IOHelper.POWER_CYCLES_KEY);
         Object object = IOHelper.deserializeObjectFromString(encodedString);
         if(object == null) {
             return new ArrayList<PowerCycle>();
