@@ -24,6 +24,11 @@ public class PowerCycleActivity extends ActionBarActivity {
         Bundle b = getIntent().getExtras();
         int id = (int)b.getLong(BundleKeys.SELECTED_POWER_CYCLE_ID_KEY);
         PowerCycle powerCycle = PowerCyclesManager.getInstance().getPowerCycles().get(id);
+        int progress = PowerCyclesManager.getInstance().getCycleProgress(powerCycle);
+        int count = powerCycle.getTrainings().size();
+        String progressString = String.format("%d / %d trainings complete!", progress, count);
+
+
         setTitle(powerCycle.getName());
         TextView powerCycleTypeView = (TextView)findViewById(R.id.power_cycle_type_text_view);
         powerCycleTypeView.setText(getString(PowerCyclesHelper.getResourceFromPowerCycleType(powerCycle.getType())));
@@ -32,10 +37,10 @@ public class PowerCycleActivity extends ActionBarActivity {
         powerCycleWeightView.setText(Float.toString(powerCycle.getWeight()));
 
         ProgressBar progressBar = (ProgressBar)findViewById(R.id.power_cycle_progress_bar);
-        progressBar.setProgress(50);
+        progressBar.setProgress(100 * (progress / count));
 
         TextView progressTextView = (TextView)findViewById(R.id.progress_text_view);
-        progressTextView.setText("8 / 16 trainings complete!");
+        progressTextView.setText(progressString);
     }
 
     @Override

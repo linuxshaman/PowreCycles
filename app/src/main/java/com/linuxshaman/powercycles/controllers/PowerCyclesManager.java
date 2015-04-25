@@ -16,7 +16,7 @@ public class PowerCyclesManager{
     protected List<PowerCycle> powerCycles;
 
     private PowerCyclesManager() {
-        powerCycles = load();
+        powerCycles = loadCycles();
     }
 
     public List<PowerCycle> getPowerCycles() {
@@ -38,16 +38,35 @@ public class PowerCyclesManager{
     public void addNewCycle(String name, float weight, PowerCycleType type){
         PowerCycle cycle = new PowerCycle(type, name, weight);
         getInstance().powerCycles.add(cycle);
-        getInstance().save();
+        getInstance().saveCycles();
+        IOHelper.saveIntegerDataForKey(cycle.getName(), 0);
     }
 
-    public void save() {
+    public int getCycleProgress(PowerCycle cycle){
+        return IOHelper.readIntegerDataForKey(cycle.getName());
+    }
+
+    public void updateCycleProgress(PowerCycle cycle, int progress){
+        IOHelper.saveIntegerDataForKey(cycle.getName(), progress);
+    }
+
+    public void incrementCycleProgress(PowerCycle cycle){
+        int progress = IOHelper.readIntegerDataForKey(cycle.getName());
+        if(progress == Integer.MIN_VALUE){
+            progress = 0;
+        }else{
+            progress ++;
+        }
+        IOHelper.saveIntegerDataForKey(cycle.getName(), progress);
+    }
+
+    public void saveCycles() {
         if (powerCycles == null || powerCycles.size() == 0) return;
         IOHelper.serializeObjectToStringAndSaveWithKey((Serializable) powerCycles, IOHelper.POWER_CYCLES_KEY);
     }
 
-    private List<PowerCycle>  load() {
-        String encodedString = IOHelper.readData(IOHelper.POWER_CYCLES_KEY);
+    private List<PowerCycle>  loadCycles() {
+        String encodedString = IOHelper.readStringDataForKey(IOHelper.POWER_CYCLES_KEY);
         Object object = IOHelper.deserializeObjectFromString(encodedString);
         if(object == null) {
             return new ArrayList<PowerCycle>();
