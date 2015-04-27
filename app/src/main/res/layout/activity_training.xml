@@ -34,4 +34,12 @@
         android:id="@+id/power_cycle_progress_bar"
         android:layout_below="@+id/progress_text_view"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_training"
+        android:id="@+id/start_training_button"
+        android:layout_below="@+id/power_cycle_progress_bar"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

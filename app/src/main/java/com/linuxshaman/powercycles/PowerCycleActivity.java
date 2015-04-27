@@ -1,9 +1,12 @@
 package com.linuxshaman.powercycles;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -15,19 +18,23 @@ import com.linuxshaman.powercycles.helpers.BundleKeys;
 
 public class PowerCycleActivity extends ActionBarActivity {
 
+    private int progress = 0;
+    private int powerCycleId =  0;
+    private PowerCycleActivity self = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        self = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle b = getIntent().getExtras();
-        int id = (int)b.getLong(BundleKeys.SELECTED_POWER_CYCLE_ID_KEY);
-        PowerCycle powerCycle = PowerCyclesManager.getInstance().getPowerCycles().get(id);
-        int progress = PowerCyclesManager.getInstance().getCycleProgress(powerCycle);
+        powerCycleId = (int)b.getLong(BundleKeys.SELECTED_POWER_CYCLE_ID_KEY);
+        PowerCycle powerCycle = PowerCyclesManager.getInstance().getPowerCycles().get(powerCycleId);
+        progress = PowerCyclesManager.getInstance().getCycleProgress(powerCycle);
         int count = powerCycle.getTrainings().size();
         String progressString = String.format("%d / %d trainings complete!", progress, count);
-
 
         setTitle(powerCycle.getName());
         TextView powerCycleTypeView = (TextView)findViewById(R.id.power_cycle_type_text_view);
@@ -41,6 +48,9 @@ public class PowerCycleActivity extends ActionBarActivity {
 
         TextView progressTextView = (TextView)findViewById(R.id.progress_text_view);
         progressTextView.setText(progressString);
+
+        Button startTrainingButtom = (Button)findViewById(R.id.start_training_button);
+        startTrainingButtom.setOnClickListener(startTrainingButtonListner);
     }
 
     @Override
@@ -64,4 +74,16 @@ public class PowerCycleActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    View.OnClickListener startTrainingButtonListner = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Bundle bundle = new Bundle();
+            bundle.putInt(BundleKeys.SELECTED_POWER_CYCLE_ID_KEY, powerCycleId);
+            bundle.putInt(BundleKeys.SELECTED_TRAINING_ID_KEY, progress);
+            Intent intent = new Intent(self, FullTrainingActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+    };
 }

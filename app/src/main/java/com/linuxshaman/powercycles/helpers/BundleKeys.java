@@ -6,5 +6,6 @@ package com.linuxshaman.powercycles.helpers;
 public class BundleKeys {
 
     public static String SELECTED_POWER_CYCLE_ID_KEY = "SELECTED_POWER_CYCLE_ID_KEY";
+    public static String SELECTED_TRAINING_ID_KEY = "SELECTED_TRAINING_ID_KEY";
 
 }

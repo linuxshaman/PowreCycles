@@ -31,10 +31,14 @@
         <activity
             android:name=".PowerCycleActivity"
             android:label="@string/title_activity_training"
-            android:screenOrientation="nosensor">
+            android:screenOrientation="nosensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.linuxshaman.powercycles.SelectCycleActivity" />
+        </activity>
+        <activity
+            android:name=".FullTrainingActivity"
+            android:label="@string/title_activity_full_training" >
         </activity>
     </application>
 
